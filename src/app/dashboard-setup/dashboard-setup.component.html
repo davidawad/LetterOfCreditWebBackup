@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <h1 class="mega montserrat bold">
+    Letter of Credit on
+    <span class="color-emphasis-1">Corda.</span>
+  </h1>
+  <br>
+  <br>
+  <h1 class="mega montserrat">
+    Start by assigning roles to your
+    <span class="color-emphasis-1">nodes.</span>
+  </h1>
+</div>
+
+<div class='selector'>
+  <ul>
+    <li>
+      <input id='1' class='1' (click)="lookupPeer('Buyer', $event)">
+      <label for='1' class='1'>Buyer</label>
+    </li>
+    <li>
+      <input id='2' class='2' (click)="lookupPeer('Seller', $event)">
+      <label for='2' class='2'>Seller</label>
+    </li>
+    <li>
+      <input id='3' class='3' (click)="lookupPeer('Issuing Bank', $event)">
+      <label for='3' class='3'>Seller's Bank</label>
+    </li>
+    <li>
+      <input id='4' class='4' (click)="lookupPeer('Advising Bank', $event)">
+      <label for='4'class='4'>Buyer's Bank</label>
+    </li>
+    <li>
+      <input id='5' class='5' (click)="lookupPeer('Central Bank', $event)">
+      <label for='5' class='5'>Central Bank</label>
+    </li>
+  </ul>
+  <button (click)="launch($event)" id="launch">{{launchText}}</button>
+</div>
+
+<div class='wrap'>
+  <div class='role-content'>
+    <table class="table table-condensed table-striped">
+      <thead>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Port</th>
+        <th>Letter of Credit</th>
+        <th>Cash Issuance</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let peer of peerMapping">
+          <td>{{peer.name}}</td>
+          <td>{{peer.role}}</td>
+          <td>{{peer.port}}</td>
+          <td>
+            <button *ngIf="peer.role !== 'Central Bank'" (click)="launchPage(peer.role, peer.port, $event)" type="button" class="btn btn-primary btn-info-full next-step">Launch</button>
+          </td>
+          <td><button *ngIf="peer.role === 'Advising Bank' || peer.role === 'Issuing Bank' || peer.role === 'Central Bank'" (click)="launchPage(peer.role, peer.port, $event, true)" type="button" class="btn btn-primary btn-info-full next-step">Launch</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

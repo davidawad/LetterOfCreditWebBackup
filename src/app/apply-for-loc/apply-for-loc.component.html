@@ -1,0 +1,174 @@
+<form (ngSubmit)="onSubmit()" #ApplyForLoc="ngForm">
+  <label *ngIf="error" class="alert alert-danger">Error: select issuing and advising bank</label>
+  <button type="button" class="btn pull-right" id="autoComplete" (click)="autoComplete()">✓✓ Autocomplete fields</button>
+  <br>
+  <br>
+  <h4>Participants</h4>
+  <div class="form inline">
+    <div class="form-group">
+      <label for="issuer">Issuer Bank</label>
+      <input type="text" class="form-control" id="issuer" [(ngModel)]="loc.issuer" name="issuer" placeholder="Issuing" (click)="lookupIssuer()" [ngClass]="{'glow': issuerGlow}">
+    </div>
+
+    <div class="form-group">
+      <label for="advisingBank">Advisory Bank</label>
+      <input type="text" class="form-control" id="advisingBank" [(ngModel)]="loc.advisingBank" name="advisingBank" placeholder="Advising" (click)="lookupAdvising()" [ngClass]="{'glow': advisingGlow}">
+    </div>
+
+    <div class="form-group">
+      <label for="beneficiary">Seller</label>
+      <input type="text" class="form-control" id="beneficiary" [(ngModel)]="loc.beneficiary" name="beneficiary" placeholder="Seller">
+    </div>
+
+    <div class="form-group">
+      <label for="applicant">Buyer</label>
+      <input type="text" class="form-control" id="applicant" [(ngModel)]="loc.applicant" name="applicant" placeholder="Applicant">
+    </div>
+  </div>
+
+  <hr class="modal-hr">
+
+  <h4>Identification</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="applicationID">Id</label>
+      <input type="text" class="form-control" id="applicationID" placeholder="Application Id" required [(ngModel)]="loc.applicationId"
+        name="applicationId">
+    </div>
+
+    <div class="form-group">
+      <label for="typeCredit">Letter of Credit Type</label>
+      <input type="text" class="form-control" id="typeCredit" placeholder="Credit Type" required [(ngModel)]="loc.typeCredit" name="typeCredit">
+    </div>
+
+    <div class="form-group">
+      <label for="expiryDate">Expiry</label>
+      <input type="text" class="form-control" id="expiryDate" required [(ngModel)]="loc.expiryDate" name="expiryDate" placeholder="dd/mm/yyyy">
+    </div>
+  </div>
+
+  <br>
+  <h4>Value</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="amount">Amount ($)</label>
+      <input type="text" class="form-control" id="amount" placeholder="Amount" required [(ngModel)]="loc.amount" name="amount">
+    </div>
+  </div>
+
+  <br>
+  <h4>Loading Details</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="portLoadingAddress">Address</label>
+      <input type="text" class="form-control" id="portLoadingAddress" placeholder="Address" required [(ngModel)]="loc.portLoadingAddress"
+        name="portLoadingAddress">
+    </div>
+
+    <div class="form-group">
+      <label for="portLoadingCity">City</label>
+      <input type="text" class="form-control" id="portLoadingCity" placeholder="City" required [(ngModel)]="loc.portLoadingCity"
+        name="portLoadingCity">
+    </div>
+
+    <div class="form-group">
+      <label for="portLoadingCountry">Country</label>
+      <input type="text" class="form-control" id="portLoadingCountry" placeholder="Country" required [(ngModel)]="loc.portLoadingCountry"
+        name="portLoadingCountry">
+    </div>
+  </div>
+
+  <br>
+  <h4>Discharge Details</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="portDischargeAddress">Address</label>
+      <input type="text" class="form-control" id="portDischargeAddress" placeholder="Address" required [(ngModel)]="loc.portDischargeAddress"
+        name="portDischargeAddress">
+    </div>
+
+    <div class="form-group">
+      <label for="portDischargeCity">City</label>
+      <input type="text" class="form-control" id="portDischargeCity" placeholder="City" required [(ngModel)]="loc.portDischargeCity"
+        name="portDischargeCity">
+    </div>
+
+    <div class="form-group">
+      <label for="portDischargeCountry">Country</label>
+      <input type="text" class="form-control" id="portDischargeCountry" placeholder="Country" required [(ngModel)]="loc.portDischargeCountry"
+        name="portDischargeCountry">
+    </div>
+  </div>
+
+  <br>
+  <h4>Product</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="goodsDescription">Description</label>
+      <input type="text" class="form-control" id="goodsDescription" placeholder="Description" [(ngModel)]="loc.goodsDescription"
+        name="goodsDescription">
+    </div>
+    <div class="form-group">
+      <label for="goodsQuantity">Quantity</label>
+      <input type="text" class="form-control" id="goodsQuantity" placeholder="Quantity" [(ngModel)]="loc.goodsQuantity" name="goodsQuantity">
+    </div>
+
+    <div class="form-group">
+      <label for="goodsWeight">Weight</label>
+      <input type="text" class="form-control" id="goodsWeight" placeholder="Weight" [(ngModel)]="loc.goodsWeight" name="goodsWeight">
+    </div>
+
+    <div class="form-group">
+      <label for="goodsWeightUnit">Unit of weight</label>
+      <input type="text" class="form-control" id="goodsWeightUnit" placeholder="Unit of Weight" [(ngModel)]="loc.goodsWeightUnit"
+        name="goodsWeightUnit">
+    </div>
+
+    <div class="form-group">
+      <label for="goodsUnitPrice">Unit Price</label>
+      <input type="text" class="form-control" id="goodsUnitPrice" placeholder="Price per Unit" [(ngModel)]="loc.goodsUnitPrice"
+        name="goodsUnitPrice">
+    </div>
+  </div>
+
+  <br>
+  <h4>Presentation</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="placePresentationCountry">Country</label>
+      <input type="text" class="form-control" id="placePresentationCountry" placeholder="Country" [(ngModel)]="loc.placePresentationCountry"
+        name="placePresentationCountry">
+    </div>
+
+    <div class="form-group">
+      <label for="placePresentationCity">City</label>
+      <input type="text" class="form-control" id="placePresentationCity" placeholder="City" [(ngModel)]="loc.placePresentationCity"
+        name="placePresentationCity">
+    </div>
+
+    <div class="form-group">
+      <label for="placePresentationState">State</label>
+      <input type="text" class="form-control" id="placePresentationState" placeholder="State" [(ngModel)]="loc.placePresentationState"
+        name="placePresentationState">
+    </div>
+
+    <div class="form-group">
+      <label for="lastShipmentDate">Last Shipment Date</label>
+      <input type="text" class="form-control" id="lastShipmentDate" [(ngModel)]="loc.lastShipmentDate" name="lastShipment|">
+    </div>
+
+    <div class="form-group">
+      <label for="periodPresentation">Period Presentation</label>
+      <input type="text" class="form-control" id="periodPresentation" [(ngModel)]="loc.periodPresentation" name="periodPresentation">
+    </div>
+  </div>
+
+  <hr class="modal-hr">
+  <div class="modal-actions">
+    <span class="cancel" (click)="close()">Cancel</span>
+    <input type="submit" class="submit" value="Apply">
+  </div>
+
+  <div class="fix"></div>
+
+</form>

@@ -1,0 +1,81 @@
+<div *ngIf="purchaseOrder">
+  <label class="control-label col-sm-2" for="purchaseOrderDate">Date</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="purchaseOrderDate" [ngModel]="purchaseOrder.purchaseOrderDate | date" name="purchaseOrderDate" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="purchaseOrderID">ID</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="purchaseOrderID" [(ngModel)]="purchaseOrder.purchaseOrderID" name="purchaseOrderID" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="sellerName">Seller Name</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="sellerName" [(ngModel)]="purchaseOrder.sellerName" name="sellerName" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="sellerAddress">Seller Address</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="sellerAddress" [(ngModel)]="purchaseOrder.sellerAddress" name="sellerAddress" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="buyerName">Buyer Name</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="buyerName" [(ngModel)]="purchaseOrder.buyerName" name="buyerName" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="buyerAddress">Buyer Address</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="buyerAddress" [(ngModel)]="purchaseOrder.buyerAddress" name="buyerAddress" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="goodsDescription">Goods Desc</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="goodsDescription" [(ngModel)]="purchaseOrder.goodsDescription" name="goodsDescription"
+      disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="goodsQuantity">Quantity</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="goodsQuantity" [(ngModel)]="purchaseOrder.goodsQuantity" name="goodsQuantity" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="goodsUnitPrice">Unit Price</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="goodsUnitPrice" [(ngModel)]="purchaseOrder.goodsUnitPrice" name="goodsUnitPrice" disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="goodsGrossWeight">Gross Weight</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="goodsGrossWeight" [(ngModel)]="purchaseOrder.goodsGrossWeight" name="goodsGrossWeight"
+      disabled>
+  </div>
+
+  <label class="control-label col-sm-2" for="term">Term</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="term" [(ngModel)]="purchaseOrder.term" name="term" disabled>
+  </div>
+
+  <hr>
+
+  <div class="row col-sm-12">
+    <h4>Transaction Info</h4>
+  </div>
+
+  <div class="transactions">
+  <div class="row form-group col-sm-12">
+    <label>Hash</label>
+    <div class="txInfo">{{purchaseOrder.transactionHash}}</div>
+  </div>
+
+    <div *ngFor="let signature of purchaseOrder.signatures; let idx = index">
+      <div class="row form-group col-sm-12">
+        <label>Signature {{idx + 1}}</label>
+        <div class="txInfo">{{purchaseOrder.signers[idx]}}</div>
+        <div class="txInfo">{{purchaseOrder.signatures[idx].substring(0, 64)}}</div>
+      </div>
+    </div>
+</div>
+  <div class="row"></div>
+
+</div>

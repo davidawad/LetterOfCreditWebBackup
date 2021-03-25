@@ -1,0 +1,101 @@
+<form (ngSubmit)="onSubmit()" #BillOfLading="ngForm">
+
+  <div class="form-group">
+    <button type="button" class="btn pull-right" id="autoComplete" (click)="autoComplete()">✓✓ Autocomplete fields</button>
+    <br>
+    <br>
+    <label>ID</label>
+    <div class="form-inline">
+      <input type="text" class="form-control" id="billOfLadingId" placeholder="Id" required [(ngModel)]="bol.billOfLadingId" name="billOfLadingId">
+    </div>
+    <label>Carrier</label>
+    <div class="form-inline">
+      <input type="text" placeholder="Owner" class="form-control" id="carrierOwner" [(ngModel)]="bol.carrierOwner" name="carrierOwner">
+      <input type="text" class="form-control" id="nameOfVessel" required [(ngModel)]="bol.nameOfVessel" name="nameOfVessel" placeholder="Name of vessel">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Dates</label>
+    <div class="form-inline">
+      <input type="text" class="form-control" id="issueDate" required [(ngModel)]="bol.issueDate" name="issueDate" placeholder="Issue date">
+      <input type="text" class="form-control" id="dateOfShipment" required [(ngModel)]="bol.dateOfShipment" name="dateOfShipment"
+        placeholder="Shipment date and time">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Product</label>
+    <input type="text" class="form-control" id="goodsDescription" placeholder="Description" [(ngModel)]="bol.goodsDescription"
+      name="goodsDescription">
+
+    <div class="form-inline">
+      <input type="text" class="form-control" id="goodsQuantity" placeholder="Quantity" [(ngModel)]="bol.goodsQuantity" name="goodsQuantity">
+      <input type="text" class="form-control" id="grossWeight" placeholder="Weight" [(ngModel)]="bol.grossWeight" name="grossWeight">
+      <input type="text" class="form-control" id="grossWeightUnit" placeholder="Weight Unit" [(ngModel)]="bol.grossWeightUnit"
+        name="grossWeightUnit">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Loading Details</label>
+    <input type="text" class="form-control" id="portOfLoadingAddress" placeholder="Address" required [(ngModel)]="bol.portOfLoadingAddress"
+      name="portOfLoadingAddress">
+    <div class="form-inline">
+      <input type="text" class="form-control" id="portOfLoadingCountry" placeholder="Country" required [(ngModel)]="bol.portOfLoadingCountry"
+        name="portOfLoadingCountry">
+      <input type="text" class="form-control" id="portOfLoadingCity" placeholder="City" required [(ngModel)]="bol.portOfLoadingCity"
+        name="portOfLoadingCity">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Discharge Details</label>
+    <input type="text" class="form-control" id="portOfDischargeAddress" placeholder="Address" [(ngModel)]="bol.portOfDischargeAddress"
+      name="portOfDischargeAddress">
+    <div class="form-inline">
+      <input type="text" class="form-control" id="portOfDischargeCountry" placeholder="Country" [(ngModel)]="bol.portOfDischargeCountry"
+        name="portOfDischargeCountry">
+      <input type="text" class="form-control" id="portOfDischargeCity" placeholder="City" [(ngModel)]="bol.portOfDischargeCity"
+        name="portOfDischargeCity">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Notify Details</label>
+    <input type="text" class="form-control" id="shipper" placeholder="Shipper" [(ngModel)]="bol.shipper" name="shipper">
+    <div class="form-inline">
+      <input type="text" class="form-control" id="notifyName" placeholder="Notify Name" [(ngModel)]="bol.notifyName" name="notifyName">
+      <input type="text" class="form-control" id="notifyAddress" placeholder="Notify Address" [(ngModel)]="bol.notifyAddress" name="notifyAddress">
+      <input type="text" class="form-control" id="notifyPhone" placeholder="Notify Phone" [(ngModel)]="bol.notifyPhone" name="notifyPhone">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Consignee Details</label>
+    <input type="text" class="form-control" id="consigneeName" placeholder="Name" [(ngModel)]="bol.consigneeName" name="consigneeName">
+    <div class="form-inline">
+      <input type="text" class="form-control" id="consigneeAddress" placeholder="Address" [(ngModel)]="bol.consigneeAddress" name="consigneeAddress">
+      <input type="text" class="form-control" id="consigneePhone" placeholder="Phone" [(ngModel)]="bol.consigneePhone" name="consigneePhone">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Recipient Details</label>
+    <div class="form-inline">
+      <input type="text" class="form-control" id="placeOfReceiptCountry" placeholder="Country" [(ngModel)]="bol.placeOfReceiptCountry"
+        name="placeOfReceiptCountry">
+      <input type="text" class="form-control" id="placeOfReceiptCity" placeholder="City" [(ngModel)]="bol.placeOfReceiptCity" name="placeOfReceiptCity">
+    </div>
+  </div>
+
+  <hr class="modal-hr">
+
+  <div class="modal-actions">
+    <span class="cancel" (click)="close()">Cancel</span>
+    <input type="submit" class="submit" value="Submit">
+  </div>
+
+  <div class="fix"></div>
+
+</form>

@@ -1,0 +1,26 @@
+<div id="peers">
+  <h4>Peers on Trade Finance Network</h4>
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Locality</th>
+        <th>Country</th>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let peer of peers">
+        <tr>
+          <td>
+            <a (click)="setPeer(peer.name)">{{peer.name}}</a>
+          </td>
+          <td>
+            <a (click)="setPeer(peer.name)">{{peer.locality}}</a>
+          </td>
+          <td>
+            <a (click)="setPeer(peer.name)">{{peer.country}}</a>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

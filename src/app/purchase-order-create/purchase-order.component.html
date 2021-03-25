@@ -1,0 +1,82 @@
+<form (ngSubmit)="onSubmit()" #PurchaseOrder="ngForm" id="purchaseOrderForm">
+    <label *ngIf="error" class="alert alert-danger">Error: select buyer</label>
+    <button type="button" class="btn pull-right" id="autoComplete" (click)="autoComplete()">✓✓ Autocomplete fields</button>
+    <br>
+    <br>
+  <h4>Basic details</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="purchaseOrderDate">Date</label>
+      <input type="text" class="form-control" id="purchaseOrderDate" [(ngModel)]="purchaseOrder.purchaseOrderDate" name="purchaseOrderDate" placeholder="Date">
+    </div>
+    <div class="form-group">
+      <label for="purchaseOrderID">Purchase Order ID</label>
+      <input type="text" class="form-control" id="purchaseOrderID" placeholder="Purchase Order Id" required [(ngModel)]="purchaseOrder.purchaseOrderID" name="purchaseOrderID">
+    </div>
+    <div class="form-group">
+      <label for="term">Term</label>
+      <input type="text" class="form-control" id="term" placeholder="Term" [(ngModel)]="purchaseOrder.term" name="term">
+    </div>
+  </div>
+
+  <h4>Buyer details</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="buyerName">Name</label>
+      <input type="text" class="form-control" id="buyerName" required placeholder="Name" [(ngModel)]="purchaseOrder.buyerName" name="buyerName">
+    </div>
+    <div class="form-group">
+      <label for="buyerAddress">Address</label>
+      <input type="text" class="form-control" id="buyerAddress" placeholder="Address" [(ngModel)]="purchaseOrder.buyerAddress" name="buyerAddress">
+    </div>
+  </div>
+
+  <h4>Seller details</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="sellerName">Name</label>
+      <input type="text" class="form-control" id="sellerName" required minlength="5" placeholder="Name" [(ngModel)]="purchaseOrder.sellerName" name="sellerName" (click)="lookupSeller()" [ngClass]="{'glow': glow}">
+    </div>
+    <div class="form-group">
+      <label for="sellerAddress">Address</label>
+      <input type="text" class="form-control" id="sellerAddress" placeholder="Address" [(ngModel)]="purchaseOrder.sellerAddress" name="sellerAddress">
+    </div>
+  </div>
+
+  <h4>Purchased goods</h4>
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="goodsDescription">Description</label>
+      <input type="text" class="form-control" id="goodsDescription" placeholder="Description" [(ngModel)]="purchaseOrder.goodsDescription"
+        name="goodsDescription">
+    </div>
+    <div class="form-group">
+      <label for="goodsQuantity">Quantity</label>
+      <input type="text" class="form-control" id="goodsQuantity" placeholder="Quantity" [(ngModel)]="purchaseOrder.goodsQuantity" name="goodsQuantity">
+    </div>
+    <div class="form-group">
+      <label for="goodsUnitPrice">Unit price</label>
+      <input type="text" class="form-control" id="goodsUnitPrice" placeholder="Unit Price" [(ngModel)]="purchaseOrder.goodsUnitPrice" name="goodsUnitPrice">
+    </div>
+    <div class="form-group">
+      <label for="goodsGrossWeight">Gross weight</label>
+      <input type="text" class="form-control" id="goodsGrossWeight" placeholder="Gross Weight" [(ngModel)]="purchaseOrder.goodsGrossWeight"
+        name="goodsGrossWeight">
+    </div>
+    <div class="form-group">
+      <label for="goodsPurchaseOrderRef">Purchase order reference</label>
+      <input type="text" class="form-control" id="goodsPurchaseOrderRef" placeholder="Purchase Order Ref" [(ngModel)]="purchaseOrder.goodsPurchaseOrderRef"
+        name="goodsPurchaseOrderRef">
+    </div>
+  </div>
+
+  <hr class="modal-hr">
+
+    <div class="modal-actions">
+      <span class="cancel" (click)="close()">Cancel</span>
+      <input type="submit" class="submit" value="Create Purchase Order">
+    </div>
+
+<div class="fix"></div>
+
+</form>

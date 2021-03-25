@@ -1,0 +1,30 @@
+<div id="peers">
+    <h4>Peers on Trade Finance Network</h4>
+    <table class="table table-condensed table-striped table-hover clickable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Port</th>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let peer of identityService.scannedPeers">
+          <tr>
+            <td>
+              <a>{{peer.name}}</a>
+            </td>
+            <td>
+              <a>{{peer.port}}</a>
+            </td>
+          </tr>
+        </ng-container>
+        <tr>
+          <td>
+            <a>Notary Pool</a>
+          </td>
+          <td>
+            <a>N/A</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

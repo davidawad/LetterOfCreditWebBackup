@@ -1,0 +1,16 @@
+<div class="col-md-1">
+<img src="assets/wallet.png" height="20px">
+</div>
+<div class="col-md-6">
+<table class="table-condensed">
+  <tbody>
+  <tr *ngIf="cashBalances">
+    <td>Balance</td>
+    <td>
+        <ng2-odometer class="white" [number]=[cashBalances.amount] [config]="{ }"></ng2-odometer>
+    </td>
+    <td><img src="assets/dollar.png" height="20px"></td>
+  </tr>
+</tbody>
+</table>
+</div>

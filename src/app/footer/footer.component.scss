@@ -1,0 +1,79 @@
+#footer {
+  height: 80px;
+  width: 97.5%;
+  position: absolute;
+  bottom: 0;
+}
+
+.slackimg {
+  position: relative;
+  top: 12px;
+  width: 65px;
+  margin-right: 8px;
+}
+
+.slack {
+  position: relative;
+  bottom: 15px;
+  background-color: #000;
+  padding: 10px;
+  margin: 15px 0;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.links {
+  float: right;
+}
+
+.powered {
+  position: absolute;
+  width: 140px;
+  right: calc(50% - 70px);
+  bottom: 25px;
+}
+
+hr {
+  margin-bottom: 20px;
+}
+
+a {
+  font-family: 'Roboto', sans-serif;
+  color: rgb(198, 204, 205);
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 10px 0;
+  position: relative;
+  -moz-transition: ease-out 0.3s 0.1s;
+  -o-transition: ease-out 0.3s 0.1s;
+  -webkit-transition: ease-out 0.3s;
+  -webkit-transition-delay: 0.1s;
+  transition: ease-out 0.3s 0.1s;
+}
+
+a::after {
+  height: 2px;
+  width: 100%;
+  background: white;
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+a:hover::after {
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}

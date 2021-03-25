@@ -1,0 +1,53 @@
+<div class="component">
+  <div class="panel-heading">Transactions</div>
+  <div class="panel-body">
+    <div class="grid grid-pad">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Hash</th>
+            <th>Inputs</th>
+            <th>Outputs</th>
+            <th>Signers</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tx of txs">
+            <td>
+              {{tx.hash}}
+            </td>
+            <td>
+              <div *ngIf="tx.inputs.length > 0">
+                <div *ngFor="let input of tx.inputs">
+                  {{input}}
+                </div>
+              </div>
+              <div *ngIf="tx.inputs.length == 0">
+                N/A
+              </div>
+            </td>
+            <td>
+                <div *ngIf="tx.outputs.length > 0">
+                    <div *ngFor="let output of tx.outputs">
+                      {{output}}
+                    </div>
+                  </div>
+                  <div *ngIf="tx.outputs.length == 0">
+                    N/A
+                  </div>
+            </td>
+            <td>
+              <div *ngIf="tx.signers.length > 0">
+                  <div *ngFor="let signer of tx.signers">
+                    {{signer}}
+                  </div>
+                </div>
+                <div *ngIf="tx.signers.length == 0">
+                  N/A
+                </div>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

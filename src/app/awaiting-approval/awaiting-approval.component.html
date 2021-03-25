@@ -1,0 +1,35 @@
+<div class="component">
+  <div class="panel-heading">Letter Of Credit Applications</div>
+  <div class="panel-body">
+    <div class="grid grid-pad">
+      <table class="table table-condensed">
+        <thead>
+        <tr>
+          <th>Buyer</th>
+          <th>Seller</th>
+          <th>Amount</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let loc of locs" (click)="openLocModal(loc.id)" class="clickable">
+            <td hidden>
+              <a>{{loc.id}}</a>
+            </td>
+            <td>
+                <a>{{loc.applicant}}</a>
+            </td>
+            <td>
+                <a>{{loc.beneficiary}}</a>
+            </td>
+            <td>
+                <a>{{loc.amount}}</a>
+            </td>
+            <td>
+                <a>{{loc.description}}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

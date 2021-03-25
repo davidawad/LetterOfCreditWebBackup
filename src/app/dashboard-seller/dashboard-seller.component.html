@@ -1,0 +1,59 @@
+<header></header>
+
+<div class="body-wrapper">
+
+  <div class="col-md-2">
+  </div>
+
+  <div class="col-md-8">
+
+    <div class="row">
+      <all-loc-seller [getAllUrl]="'seller'" id="orders"></all-loc-seller>
+    </div>
+
+    <div class="row">
+      <all-purchase-order-seller id="purchaseOrders"></all-purchase-order-seller>
+    </div>
+
+    <div class="row">
+      <app-transactions id="transactions"></app-transactions>
+    </div>
+
+  </div>
+
+  <div class="col-md-2">
+  </div>
+
+</div>
+
+<div class="here-there" *ngIf="statusService.shipAnimation">
+  <div class="traslate">
+    <div class="ship">
+      <div class="bottom-1">
+        <div class="bottom-1-top"></div>
+        <div class="bottom-1-top-left"></div>
+        <div class="bottom-1-top-right">
+          <div class="bottom-1-top-right-window"></div>
+        </div>
+      </div>
+      <div class="ship-body">
+        <div class="middle-window"></div>
+        <div class="blue-strip-top"></div>
+        <div class="blue-strip-bottom"></div>
+        <div class="ship-body-top-back">
+          <div class="blue-strip-top-half"></div>
+        </div>
+        <div class="chimney-base">
+          <div class="chimney"></div>
+          <div class="chimney"></div>
+        </div>
+      </div>
+      <div class="ship-body-top-front">
+        <div class="top-antenna"></div>
+        <div class="circular-base"></div>
+        <div class="circular-base-1"></div>
+      </div>
+      <div class="ship-body-top-front-mirror"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="component">
+    <div class="panel-heading">Goods Shipped</div>
+    <div class="panel-body">
+      <div class="grid grid-pad">
+        <table class="table table-condensed table-striped table-striped">
+          <thead>
+          <tr>
+            <th>Applicant</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Payment Received</th>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let loc of locs">
+            <tr *ngIf="loc.status == 'Shipped'" [ngClass]="{'danger': loc.advisingPayment == false}">
+              <td>
+                  <a [routerLink]="['/approve', loc.id]">{{loc.applicant}}</a>
+              </td>
+              <td>
+                  <a [routerLink]="['/approve', loc.id]">{{loc.amount + " " + loc.currency}}</a>
+              </td>
+              <td>
+                  <a [routerLink]="['/approve', loc.id]">{{loc.description}}</a>
+              </td>
+              <td>
+                <a [routerLink]="['/approve', loc.id]">{{loc.status}}</a>
+            </td>
+            <td>
+                <a [routerLink]="['/approve', loc.id]">{{loc.advisingPayment}}</a>
+            </td>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

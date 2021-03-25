@@ -1,0 +1,27 @@
+<ul *ngIf=bolEvents class="timeline">
+
+  <div *ngFor="let event of bolEvents.dict">
+
+    <li>
+      <div class="tldate"><i class="glyphicon glyphicon-time"></i>  {{event.value}}</div>
+    </li>
+
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <h4>Owned by {{event.key}}</h4>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </li>
+
+  </div>
+</ul>

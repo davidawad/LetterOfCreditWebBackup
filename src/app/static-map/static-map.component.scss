@@ -1,0 +1,771 @@
+:root {
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	-moz-tap-highlight-color: transparent;
+	-ms-tap-highlight-color: transparent;
+	-o-tap-highlight-color: transparent;
+	tap-highlight-color: transparent;
+}
+*,
+:before,
+:after {
+	box-sizing: inherit;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+#world svg,
+#container svg,
+button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	-webkit-contain: strict;
+	-moz-contain: strict;
+	-ms-contain: strict;
+	-o-contain: strict;
+	contain: strict;
+}
+#world,
+#container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 0;
+	margin: 0;
+	padding-top: 49.82167946%;
+}
+#container {
+  padding-top: 51.56646615%;
+
+}
+.map {
+	fill: #ddd;
+	will-change: opacity;
+}
+.arrow {
+	width: 25%;
+	height: 46%;
+}
+.pulse,
+#marker-seller > svg {
+  fill: #068bf7;
+}
+#marker-advising > svg {
+  fill: #97aaff;
+}
+#marker-buyer > svg {
+  fill: #f70626;
+}
+#marker-issuing > svg {
+  fill: #f798e2;
+}
+#marker-central > svg {
+  fill: #6cfd9c;
+}
+#marker-notary > svg {
+  fill: #ffee00;
+}
+#marker-notary > svg {
+	fill: #ffee00;
+}
+
+[id^="marker-"] {
+	animation: fall 1000ms ease-in both;
+}
+[id^="marker-"],
+[id^="marker-"] > svg {
+	transform-origin: 50% 100%;
+	will-change: transform;
+	transform: translateZ(0);
+	backface-visibility: hidden;
+}
+[id^="marker-"]:hover > svg {
+	animation: wobble 1000ms both;
+}
+[id^="marker-"] > svg,
+#closeBtn > svg {
+	pointer-events: none;
+	cursor: pointer;
+}
+.me {
+	transform-origin: 50% 50%;
+	animation: pulse 3000ms ease-in infinite both;
+}
+#c {
+	will-change: r;
+}
+.reveal #c {
+	animation: reveal 900ms ease-in both;
+}
+.reveal .map,
+.reveal .arrow,
+.hide .arrow,
+.reveal .pulse,
+.reveal #marker {
+	animation: fade-out 200ms ease-in both;
+	pointer-events: none;
+	cursor: default;
+}
+.hide #c {
+	animation: hide 900ms ease-out both;
+}
+.hide .map,
+.hide .pulse,
+.hide #marker {
+	animation: fade-in 300ms 600ms ease-out both;
+}
+#closeBtn {
+	transition: opacity 300ms;
+	opacity: 0.00001;
+	cursor: default;
+	pointer-events: none;
+}
+#closeBtn.show {
+	opacity: 0.4;
+	cursor: pointer;
+	pointer-events: auto;
+}
+#closeBtn.show:hover {
+	opacity: 0.8;
+}
+button {
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	box-shadow: none;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+.draw-arrow {
+ animation: draw 1200ms 1000ms linear 1 forwards;
+}
+.tail-1 {
+ animation-delay: 1300ms;
+}
+.tail-2 {
+ animation-delay: 1600ms;
+}
+
+@keyframes draw {
+ 0% {
+  stroke-dashoffset: 400;
+ }
+ 100% {
+  stroke-dashoffset: 0;
+ }
+}
+@keyframes fall {
+	0% {
+		animation-timing-function: ease-in;
+		transform: translateY(-50vmax) scale(1, 1);
+	}
+	50% {
+		animation-timing-function: ease-out;
+		transform: translateY(0) scale(1, 1);
+	}
+	55% {
+		transform: scale(1.3, 0.8);
+	}
+	60% {
+		transform: translateY(-8%) scale(1, 1);
+	}
+	64% {
+		transform: translateY(-14%) scale(0.85, 1.03);
+	}
+	70% {
+		transform: translateY(0) scale(0.95, 1.05);
+	}
+	73%,
+	100% {
+		transform: scale(1, 1);
+	}
+}
+@keyframes wobble {
+	15% {
+		transform: rotate(-5deg);
+	}
+	30% {
+		transform: rotate(3deg);
+	}
+	45% {
+		transform: rotate(-3deg);
+	}
+	60% {
+		transform: rotate(2deg);
+	}
+	75% {
+		transform: rotate(-1deg);
+	}
+}
+@keyframes pulse {
+	0% {
+		r: 0;
+		opacity: 0.00001;
+	}
+	50%,
+	70% {
+		opacity: 0.4;
+	}
+	100% {
+		r: 9;
+		opacity: 0.00001;
+	}
+}
+@keyframes reveal {
+	0% {
+		r: 1.9;
+	}
+	100% {
+		r: 845.2;
+	}
+}
+@keyframes hide {
+	0% {
+		r: 845.2;
+	}
+	100% {
+		r: 1.9;
+	}
+}
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.00001;
+	}
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0.00001;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.bar-container {
+  position: relative;
+  width: 100%;
+  height: 3em;
+  cursor: pointer;
+  display: inline-block;
+}
+.bar-container .bar1, .bar-container .bar2, .bar-container .bar3 {
+  width: 100%;
+  height: 0.3em;
+  background-color: #cccccc;
+  transition: all 0.4s;
+  border-radius: 10px;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(45deg) translate(-8.5px, 5.5px);
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(-45deg) translate(-8.5px, -7.5px);
+  transform: rotate(-45deg) translate(8.5px, -7.5px);
+}
+
+.sidenav {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  padding-top: 0.4%;
+  background-color: #000;
+  transition: all 0.6s;
+}
+.sidenav a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  font-family: roboto;
+}
+.sidenav a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.sidenav .dropdown-menu {
+  cursor: pointer;
+  height: 0;
+  transition: all 0.6s;
+  overflow: hidden;
+}
+.sidenav .dropdown-menu a {
+  padding-left: 2em;
+  background-color: #565656;
+}
+.dropdown-menu.open {
+  height: 200px;
+}
+.sidenav-toggle {
+  left: 0;
+}
+
+.container {
+  font-family: roboto;
+  z-index: 10;
+  padding: 90px 10px 0;
+  transition: all 0.6s;
+}
+.container h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0.5em;
+}
+.container p {
+  color: #333;
+  margin: 0.5em;
+}
+
+.container-toggle {
+  padding: 90px 5px 0 230px;
+}
+
+.rolldown-list {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.rolldown-list li {
+  padding: 1em;
+  margin-bottom: .125em;
+  display: block;
+  list-style: none;
+}
+
+.rolldown-list li {
+  visibility: hidden;
+  animation: rolldown .6s 1;
+  transform-origin: 50% 0;
+  animation-fill-mode: forwards;
+  width: 100%;
+}
+
+.rolldown-list li:nth-child(2n) {
+  background-color: #444;
+}
+
+.rolldown-list li:nth-child(2n+1) {
+  background-color: #333;
+}
+
+.rolldown-list li:hover {
+  cursor: pointer;
+  background-color: #666
+}
+
+#myList {
+  position: absolute;
+  width: 95%;
+  left: 2.5%;
+}
+
+#btnReload {
+  float: right;
+  color: #333;
+  background: #ccc;
+  text-transform: uppercase;
+  border: none;
+  padding: .5em 1em;
+}
+
+#btnReload:hover {
+  background: #ddd;
+}
+
+@keyframes rolldown {
+  0% {
+    visibility: visible;
+    transform: rotateX(180deg) perspective(500px);
+  }
+  70% {
+    visibility: visible;
+    transform: rotateX(-20deg);
+  }
+  100% {
+    visibility: visible;
+    transform: rotateX(0deg);
+  }
+}
+
+li {
+  color: #fff;
+}
+
+#expand {
+  position: relative;
+  top: 36.8%;
+  left: 99%;
+  background-color: #000;
+  width: 50px;
+  height: 80px;
+  font-size: 50px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+#expand:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-weight: bolder;
+}
+
+h4 {
+  margin-left: 8px;
+  margin-bottom: 15px !important;
+}
+h2 {
+  color: #fff;
+  margin-bottom: 25px !important;
+}
+
+///////////////////////////
+
+.centered-y {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.map-point {
+  cursor: pointer;
+  outline: none;
+  z-index: 0;
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 20px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -moz-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+  -o-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+  -webkit-transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out, z-index 0.25s ease-in-out;
+  -webkit-transition-delay: 0.25s, 0.25s, 0.25s, 0.25s;
+  transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+}
+.map-point .content {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  overflow: overlay;
+  background-color: #000;
+}
+.map-point:active, .map-point:focus {
+  cursor: default;
+  background: rgba(26, 26, 26, 0.85);
+  border: 5px solid #7fcff7;
+  margin: 0;
+  padding: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  width: 240px !important;
+  height: 150px !important;
+  color: #e5e5e5;
+  z-index: 1;
+  transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out;
+}
+.map-point:active .content, .map-point:focus .content {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  -moz-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+  -webkit-transition-delay: 0.25s, 0s, 0s;
+  transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+  overflow: hidden;
+}
+.map-point:active .content a:hover, .map-point:active .content a:active, .map-point:focus .content a:hover, .map-point:focus .content a:active {
+  color: #afe1fa;
+}
+.content li {
+  height: 40px;
+  font-size: 16px;
+}
+.content li:hover {
+  color: rgb(240, 63, 18);
+}
+
+/////////////////GLOW/////////////////////
+
+body {
+  background: #111;
+  background: black;
+}
+
+.glow2 {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -webkit-animation: glow2 15s linear 0s infinite forwards;
+  background: url('https://t0.rbxcdn.com/182160a5d7d68c6d4be14a6d9f9e5598');
+  background-size: contain;
+}
+
+.particles {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+
+}
+
+.rotate {
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+}
+
+.angle {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.size {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.position {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.particle {
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  width: 30px;
+  height: 30px;
+/*   background: url('https://t0.rbxcdn.com/182160a5d7d68c6d4be14a6d9f9e5598'); */
+  background: url('http://www.officialpsds.com/images/thumbs/shine-light-bright-psd43123.png');
+
+  background-size: contain;
+}
+
+.rotate {
+  -webkit-animation: rotate 20s linear 0s infinite alternate;
+}
+
+.pulse{
+  -webkit-animation: pulse 1.5s linear 0s infinite alternate;
+}
+
+
+@-webkit-keyframes glow2 {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: brightness(150%) saturate(50%) hue-rotate(0deg) opacity(100%);
+
+  }
+  25% {
+    transform: scale(0.8) rotate(90deg);
+    filter: brightness(100%) saturate(50%) hue-rotate(50deg) opacity(100%);
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    filter: brightness(100%) saturate(100%) hue-rotate(0deg) opacity(100%);
+  }
+  75% {
+    transform: scale(0.8) rotate(270deg);
+    filter: brightness(100%) saturate(50%) hue-rotate(50deg) opacity(100%);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    filter: brightness(150%) saturate(100%) hue-rotate(0deg) opacity(100%);
+
+  }
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes angle {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes size {
+  0% {
+    -webkit-transform: scale(.2);
+  }
+  100% {
+    -webkit-transform: scale(.6);
+  }
+}
+
+@-webkit-keyframes position {
+  0% {
+    -webkit-transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate3d(100px,100px,0);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(.5);
+  }
+}
+
+@-webkit-keyframes particle {
+  from {
+    transform: scale(1);
+    filter: brightness(200%) hue-rotate(0deg);
+
+  }
+  to {
+    transform: scale(1.1);
+    filter: brightness(100%) hue-rotate(50deg);
+
+  }
+}
+
+
+.rotate .angle:nth-child(1){
+  /* change the angle every 2 seconds */
+  -webkit-animation: angle 10s steps(5) 0s infinite;
+}
+.rotate .angle:nth-child(1) .size{
+  /* change the size of the particle every 2 seconds */
+  -webkit-animation: size 10s steps(5) 0s infinite;
+}
+.rotate .angle:nth-child(1) .particle{
+  /* animate the glow2 and change the color every 2 seconds */
+  -webkit-animation: particle 6s linear infinite alternate;
+}
+.rotate .angle:nth-child(1) .position{
+  /* animate the fly out of the particle and its fade out at the end */
+  -webkit-animation: position 2s linear 0s infinite;
+}
+
+
+.rotate .angle:nth-child(2){
+  /* change the angle every 2 seconds */
+  -webkit-animation: angle 4.95s steps(3) -1.65s infinite;
+}
+.rotate .angle:nth-child(2) .size{
+  /* change the size of the particle every 2 seconds */
+  -webkit-animation: size 4.95s steps(3) -1.65s infinite alternate;
+}
+.rotate .angle:nth-child(2) .particle{
+  /* animate the glow2 and change the color every 2 seconds */
+  -webkit-animation: particle 4.95s linear -3.3s infinite alternate;
+}
+.rotate .angle:nth-child(2) .position{
+  /* animate the fly out of the particle and its fade out at the end */
+  -webkit-animation: position 1.65s linear 0s infinite;
+}
+
+
+.rotate .angle:nth-child(3){
+  /* change the angle every 2 seconds */
+  -webkit-animation: angle 13.76s steps(8) -6.88s infinite;
+}
+.rotate .angle:nth-child(3) .size{
+  /* change the size of the particle every 2 seconds */
+  -webkit-animation: size 6.88s steps(4) -5.16s infinite alternate;
+}
+.rotate .angle:nth-child(3) .particle{
+  /* animate the glow2 and change the color every 2 seconds */
+  -webkit-animation: particle 5.16s linear -1.72 infinite alternate;
+}
+.rotate .angle:nth-child(3) .position{
+  /* animate the fly out of the particle and its fade out at the end */
+  -webkit-animation: position 1.72s linear 0s infinite;
+}
+
+.rotate .angle:nth-child(5) .position{
+  /* animate the fly out of the particle and its fade out at the end */
+  -webkit-animation: position 2.45s linear 0s infinite;
+}
+
+.line {
+  height: 3px;
+  background-color: #aaa;
+  transform-origin: left center;
+  position: absolute;
+  z-index: 1;
+}
+.marker-label {
+  position: absolute;
+  height: 20px;
+  width: auto;
+  background-color: #000;
+  padding: 5px 10px;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 100;
+}

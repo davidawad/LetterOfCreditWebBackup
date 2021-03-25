@@ -1,0 +1,40 @@
+<div class="component">
+  <div class="panel-heading">Purchase Orders</div>
+  <div class="panel-body">
+    <div class="grid grid-pad">
+      <table class="table table-condensed table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Buyer</th>
+            <th>Seller</th>
+            <th>Quantity</th>
+            <th>Unit price</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let purchaseOrder of purchaseOrders" (click)="openPurchaseOrderModal(purchaseOrder.purchaseOrderID)" class="clickable">
+            <td>
+              <a>{{purchaseOrder.purchaseOrderID}}</a>
+            </td>
+            <td>
+              <a>{{purchaseOrder.buyerName}}</a>
+            </td>
+            <td>
+              <a>{{purchaseOrder.sellerName}}</a>
+            </td>
+            <td>
+              <a>{{purchaseOrder.goodsQuantity}}</a>
+            </td>
+            <td>
+              <a>{{purchaseOrder.goodsUnitPrice}}</a>
+            </td>
+            <td>
+              <a>{{purchaseOrder.goodsDescription}}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
